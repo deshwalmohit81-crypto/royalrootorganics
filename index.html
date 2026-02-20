@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="description" content="Buy premium dry fruits, pure desi cow ghee, honey and spices online at Royal Root Organics. 100% natural and organic products.">
+<meta name="keywords" content="Dry Fruits, Organic Ghee, Almonds, Walnuts, Honey, Royal Root Organics">
+<meta name="author" content="Royal Root Organics">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Root Organics</title>
@@ -88,7 +91,8 @@
         .hero-content { position: relative; z-index: 2; }
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 1rem; }
         .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
-
+background-image: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%), 
+url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
         .btn {
             padding: 12px 30px; background: var(--primary); color: white;
             border: none; border-radius: 30px; font-size: 1rem; font-weight: 600;
@@ -145,6 +149,14 @@
             nav ul { position: absolute; top: 60px; left: 0; width: 100%; background: white; flex-direction: column; text-align: center; padding: 20px 0; display: none; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
             nav ul.active { display: flex; }
             .hero-content h1 { font-size: 2.5rem; }
+            #cart-count {
+    background: var(--primary);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 50%;
+    font-size: 12px;
+    margin-left: 5px;
+}
         }
     </style>
 </head>
@@ -152,9 +164,9 @@
 
     <!-- Loader -->
     <div class="loader" id="loader">
-        <div style="font-size: 2rem; color: var(--primary); font-weight: bold;">PureHarvest</div>
-    </div>
-
+    <div style="font-size: 2rem; color: var(--primary); font-weight: bold;">
+Royal Root Organics
+</div>
     <!-- Header -->
     <header>
         <div class="logo">Royal Root <span>Organics</span></div>
@@ -256,13 +268,17 @@
                     <button class="add-cart">Add to Cart</button>
                 </div>
             </div>
+            <div class="icons">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+</div>
 
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 PureHarvest. All rights reserved.</p>
+        <p>&copy; 2026 Royal Root Organics. All rights reserved.</p>
         <div class="social-links">
             <i class="fab fa-instagram"></i>
             <i class="fab fa-facebook"></i>
@@ -287,17 +303,28 @@
             nav.classList.toggle('active');
         }
 
-        // Add to Cart Animation
-        const buttons = document.querySelectorAll('.add-cart');
-        buttons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const originalText = this.innerText;
-                this.innerText = 'Added!';
-                this.style.background = '#4caf50';
-                setTimeout(() => {
-                    this.innerText = originalText;
-                    this.style.background = '';
-                }, 1500);
+      <script>
+let cartCount = 0;
+const cartDisplay = document.getElementById('cart-count');
+
+const buttons = document.querySelectorAll('.add-cart');
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', function() {
+        cartCount++;
+        cartDisplay.innerText = cartCount;
+
+        const originalText = this.innerText;
+        this.innerText = 'Added!';
+        this.style.background = '#4caf50';
+
+        setTimeout(() => {
+            this.innerText = originalText;
+            this.style.background = '';
+        }, 1000);
+    });
+});
+</script>
             });
         });
     </script>
