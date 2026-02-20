@@ -3,35 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PureHarvest | Premium Dry Fruits & Ghee</title>
+    <title>PureHarvest | Premium Dry Fruits</title>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts (Optimized) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
-    <!-- AOS Animation CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --primary: #d4a017; /* Rich Gold */
-            --secondary: #1a472a; /* Forest Green */
-            --accent: #e63946; /* Alert Red */
-            --bg-light: #fdfbf7; /* Creamy White */
+            --primary: #d4a017;
+            --secondary: #1a472a;
+            --bg-light: #fdfbf7;
             --text-dark: #333;
-            --text-light: #fff;
-            --transition: all 0.3s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-light);
@@ -39,334 +32,117 @@
             overflow-x: hidden;
         }
 
-        /* --- Preloader --- */
+        /* --- Simple Loader --- */
         .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-light);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #fff; z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.3s ease-out;
         }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #ddd;
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
+        .fade-out { opacity: 0; pointer-events: none; }
+        
         /* --- Header --- */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--secondary);
-            font-weight: 700;
-        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--secondary); font-weight: 700; }
         .logo span { color: var(--primary); }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
+        nav ul { display: flex; list-style: none; }
         nav ul li { margin: 0 15px; }
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: var(--transition);
+        nav ul li a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary); }
+
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        .icons i { margin-left: 15px; color: var(--secondary); cursor: pointer; }
+
+        /* --- Hero Section (CSS Gradient - Much Faster) --- */
+        .hero {
+            height: 90vh;
+            /* Replaced heavy image with CSS gradient */
+            background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%);
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: white; margin-top: 60px;
             position: relative;
         }
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            bottom: -5px;
-            left: 0;
-            transition: var(--transition);
-        }
-        nav ul li a:hover::after { width: 100%; }
 
-        .icons { font-size: 1.2rem; cursor: pointer; }
-        .icons i { margin-left: 15px; color: var(--secondary); transition: var(--transition); }
-        .icons i:hover { color: var(--primary); transform: scale(1.1); }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1596910547037-846b7dd4c27b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--text-light);
-            margin-top: 60px;
+        /* Decorative floating shapes */
+        .hero::before {
+            content: ''; position: absolute; width: 300px; height: 300px;
+            background: rgba(212, 160, 23, 0.2); border-radius: 50%;
+            top: -50px; left: -50px; animation: float 6s ease-in-out infinite;
         }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        .hero::after {
+            content: ''; position: absolute; width: 200px; height: 200px;
+            background: rgba(255, 255, 255, 0.1); border-radius: 50%;
+            bottom: 50px; right: -50px; animation: float 8s ease-in-out infinite reverse;
         }
+        
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(20px); } 100% { transform: translateY(0px); } }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
 
         .btn {
-            padding: 12px 30px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
+            padding: 12px 30px; background: var(--primary); color: white;
+            border: none; border-radius: 30px; font-size: 1rem; font-weight: 600;
+            cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block;
         }
-
-        .btn:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
+        .btn:hover { background: #fff; color: var(--secondary); transform: translateY(-3px); }
 
         /* --- Categories --- */
-        .categories {
-            padding: 5rem 5%;
-            text-align: center;
-        }
+        .categories { padding: 4rem 5%; text-align: center; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--secondary); margin-bottom: 2rem; }
 
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .category-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .category-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .category-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+
+        /* --- Products --- */
+        .products { padding: 4rem 5%; background: #f4f4f4; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+
+        .product-card { background: white; border-radius: 10px; overflow: hidden; transition: 0.3s; box-shadow: 0 5px 10px rgba(0,0,0,0.05); }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(0,0,0,0.1); }
+
+        .img-container {
+            height: 200px; background: #eee;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
         }
         
-        .section-title::before {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background: var(--primary);
-            bottom: -10px;
-            left: 25%;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .category-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            cursor: pointer;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .category-card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* --- Product Section --- */
-        .products {
-            background: #f4f4f4;
-            padding: 5rem 5%;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            transition: var(--transition);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-        }
-
-        .product-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-        }
-
-        .product-img {
-            height: 250px;
-            width: 100%;
-            object-fit: cover;
+        .img-container img {
+            width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.5s ease;
         }
+        .product-card:hover img { transform: scale(1.05); }
 
-        .product-card:hover .product-img {
-            transform: scale(1.1);
-        }
-
-        .img-overlay {
-            overflow: hidden;
-            position: relative;
-            height: 250px;
-        }
-
-        .overlay-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            background: var(--secondary);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: var(--transition);
-            z-index: 2;
-            border: none;
-            font-weight: bold;
-        }
-
-        .product-card:hover .overlay-btn {
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .product-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .product-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-        }
-
-        .price {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 0.9rem;
-            margin-right: 5px;
-        }
+        .product-info { padding: 1.5rem; text-align: center; }
+        .product-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
+        .price { color: var(--primary); font-weight: 700; font-size: 1.1rem; }
 
         .add-cart {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transition);
+            width: 100%; padding: 10px; margin-top: 10px;
+            background: var(--secondary); color: white; border: none;
+            border-radius: 5px; cursor: pointer; transition: 0.3s;
         }
-
-        .add-cart:hover {
-            background: var(--primary);
-        }
-
-        /* --- Features --- */
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 3rem 5%;
-            background: var(--secondary);
-            color: white;
-        }
-
-        .feature-box {
-            text-align: center;
-            margin: 1rem;
-            flex: 1 1 200px;
-        }
-        .feature-box i { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+        .add-cart:hover { background: var(--primary); }
 
         /* --- Footer --- */
-        footer {
-            background: #111;
-            color: white;
-            padding: 3rem 5%;
-            text-align: center;
-        }
-        
-        .social-links { margin-top: 1rem; }
-        .social-links i {
-            font-size: 1.5rem;
-            margin: 0 10px;
-            color: white;
-            transition: var(--transition);
-        }
-        .social-links i:hover { color: var(--primary); }
+        footer { background: #1a1a1a; color: white; padding: 2rem 5%; text-align: center; margin-top: 2rem; }
+        .social-links i { font-size: 1.5rem; margin: 0 10px; color: white; cursor: pointer; }
 
-        /* Mobile Menu Toggle */
-        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
-
+        /* --- Responsive --- */
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            nav ul {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                text-align: center;
-                padding: 20px 0;
-                display: none;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            }
+            nav ul { position: absolute; top: 60px; left: 0; width: 100%; background: white; flex-direction: column; text-align: center; padding: 20px 0; display: none; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
             nav ul.active { display: flex; }
             .hero-content h1 { font-size: 2.5rem; }
         }
@@ -376,39 +152,154 @@
 
     <!-- Loader -->
     <div class="loader" id="loader">
-        <div class="spinner"></div>
+        <div style="font-size: 2rem; color: var(--primary); font-weight: bold;">PureHarvest</div>
     </div>
 
     <!-- Header -->
     <header>
         <div class="logo">Pure<span>Harvest</span></div>
-        <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars"></i>
-        </div>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <nav>
             <ul id="nav-list">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#categories">Categories</a></li>
                 <li><a href="#products">Shop</a></li>
-                <li><a href="#about">About</a></li>
             </ul>
         </nav>
         <div class="icons">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-shopping-cart" onclick="toggleCart()"></i>
+            <i class="fas fa-shopping-cart"></i>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <h1>Nature's Finest Delights</h1>
-            <p>Premium Dry Fruits, Organic Ghee & Spices straight from the farm to your home.</p>
+        <div class="hero-content">
+            <h1>Pure & Natural</h1>
+            <p>Premium Dry Fruits, Ghee & Spices at your doorstep.</p>
             <a href="#products" class="btn">Shop Now</a>
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="features">
-        <div class="feature-box" data-aos="fade-right">
-            <i class="fas fa-leaf">
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <h2 class="section-title">Shop By Category</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <i class="fas fa-cookie"></i>
+                <h3>Dry Fruits</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-tint"></i>
+                <h3>Pure Ghee</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-pepper-hot"></i>
+                <h3>Spices</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-honey-pot"></i>
+                <h3>Honey</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <h2 class="section-title" style="text-align: center;">Best Sellers</h2>
+        <div class="product-grid">
+            
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <!-- Using placeholder images (fast loading) -->
+                    <img src="https://placehold.co/300x300/e8f5e9/1b5e20?text=Walnuts" alt="Walnuts" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Premium Walnuts</h3>
+                    <div class="price">₹450 / 250g</div>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://placehold.co/300x300/fff8e1/ff8f00?text=Almonds" alt="Almonds" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Royal Almonds</h3>
+                    <div class="price">₹500 / 250g</div>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://placehold.co/300x300/fff3e0/e65100?text=Ghee" alt="Ghee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Desi Cow Ghee</h3>
+                    <div class="price">₹900 / 1L</div>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://placehold.co/300x300/ffebee/b71c1c?text=Dates" alt="Dates" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Medjool Dates</h3>
+                    <div class="price">₹350 / 500g</div>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 PureHarvest. All rights reserved.</p>
+        <div class="social-links">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactions
+        
+        // Loader
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+            }, 500); // Short loader time
+        });
+
+        // Mobile Menu
+        function toggleMenu() {
+            const nav = document.getElementById('nav-list');
+            nav.classList.toggle('active');
+        }
+
+        // Add to Cart Animation
+        const buttons = document.querySelectorAll('.add-cart');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const originalText = this.innerText;
+                this.innerText = 'Added!';
+                this.style.background = '#4caf50';
+                setTimeout(() => {
+                    this.innerText = originalText;
+                    this.style.background = '';
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
