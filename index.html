@@ -178,9 +178,10 @@ Royal Root Organics
                 <li><a href="#products">Shop</a></li>
             </ul>
         </nav>
-        <div class="icons">
-            <i class="fas fa-shopping-cart"></i>
-        </div>
+<div class="icons">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+</div>
     </header>
 
     <!-- Hero -->
@@ -268,12 +269,8 @@ Royal Root Organics
                     <button class="add-cart">Add to Cart</button>
                 </div>
             </div>
-            <div class="icons">
-    <i class="fas fa-shopping-cart"></i>
-    <span id="cart-count">0</span>
-</div>
 
-        </div>
+
     </section>
 
     <!-- Footer -->
@@ -284,29 +281,24 @@ Royal Root Organics
             <i class="fab fa-facebook"></i>
             <i class="fab fa-twitter"></i>
         </div>
-    </footer>
+    </footer><script>
+// Loader
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.classList.add('fade-out');
+    }, 500);
+});
 
-    <script>
-        // Simple JavaScript for interactions
-        
-        // Loader
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            setTimeout(() => {
-                loader.classList.add('fade-out');
-            }, 500); // Short loader time
-        });
+// Mobile Menu
+function toggleMenu() {
+    const nav = document.getElementById('nav-list');
+    nav.classList.toggle('active');
+}
 
-        // Mobile Menu
-        function toggleMenu() {
-            const nav = document.getElementById('nav-list');
-            nav.classList.toggle('active');
-        }
-
-      <script>
+// Cart Functionality
 let cartCount = 0;
 const cartDisplay = document.getElementById('cart-count');
-
 const buttons = document.querySelectorAll('.add-cart');
 
 buttons.forEach(btn => {
@@ -323,10 +315,7 @@ buttons.forEach(btn => {
             this.style.background = '';
         }, 1000);
     });
-});
+
 </script>
-            });
-        });
-    </script>
 </body>
 </html>
