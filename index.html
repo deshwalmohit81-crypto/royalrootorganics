@@ -2,209 +2,201 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Royal Root Organics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+    <title>Royal Root Organics | Pure by Nature, Royal by Choice</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:'Poppins',sans-serif;
-        }
-
-        body{
-            background:#f9f9f9;
-        }
-
-        header{
-            background:#0d3b2e;
-            color:white;
-            padding:20px 8%;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
-
-        header h1{
-            font-size:24px;
-        }
-
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin-left:20px;
-            font-weight:500;
-        }
-
-        .hero{
-            background:url('https://images.unsplash.com/photo-1600891963935-c09c0c6b9e38') no-repeat center center/cover;
-            height:90vh;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            color:white;
-            text-align:center;
-        }
-
-        .hero h2{
-            font-size:45px;
-            background:rgba(0,0,0,0.6);
-            padding:20px;
-            border-radius:10px;
-        }
-
-        .products{
-            padding:60px 8%;
-        }
-
-        .products h2{
-            text-align:center;
-            margin-bottom:40px;
-            color:#0d3b2e;
-        }
-
-        .product-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:30px;
-        }
-
-        .product-card{
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 5px 15px rgba(0,0,0,0.1);
-            text-align:center;
-            transition:0.3s;
-        }
-
-        .product-card:hover{
-            transform:translateY(-10px);
-        }
-
-        .product-card img{
-            width:100%;
-            height:200px;
-            object-fit:cover;
-            border-radius:10px;
-        }
-
-        .product-card h3{
-            margin:15px 0 10px;
-        }
-
-        .product-card p{
-            color:#777;
-            font-size:14px;
-        }
-
-        .price{
-            font-weight:bold;
-            margin:10px 0;
-            color:#0d3b2e;
-        }
-
-        .btn{
-            background:#0d3b2e;
-            color:white;
-            padding:10px 20px;
-            border:none;
-            border-radius:5px;
-            cursor:pointer;
-            transition:0.3s;
-        }
-
-        .btn:hover{
-            background:#145c45;
-        }
-
-        footer{
-            background:#0d3b2e;
-            color:white;
-            text-align:center;
-            padding:20px;
-            margin-top:40px;
-        }
-
-        .cart{
-            position:fixed;
-            top:20px;
-            right:20px;
-            background:#ffcc00;
-            padding:10px 15px;
-            border-radius:50px;
-            font-weight:bold;
+        /* Custom Color Overrides */
+        .royal-gold { color: #D4AF37; }
+        .bg-royal-green { background-color: #1A4D2E; }
+        .bg-royal-green-light { background-color: #4F772D; }
+        .royal-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        
+        /* Smooth transitions */
+        .page-section { display: none; animation: fadeIn 0.5s; }
+        .active-section { display: block; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
+<body class="bg-stone-50 text-stone-800 font-sans">
 
-<body>
+    <!-- NAVIGATION -->
+    <nav class="bg-royal-green text-white sticky top-0 z-50 royal-shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center cursor-pointer" onclick="navigateTo('home')">
+                <i class="fa-solid fa-leaf text-2xl royal-gold mr-2"></i>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wider">ROYAL ROOT</h1>
+                    <p class="text-xs text-gray-300">Organics</p>
+                </div>
+            </div>
 
-<header>
-    <h1>🌿 Royal Root Organics</h1>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#products">Products</a>
-        <a href="#">Contact</a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-semibold">
+                <a href="#" onclick="navigateTo('home')" class="hover:text-yellow-400 transition">Home</a>
+                <a href="#" onclick="navigateTo('shop')" class="hover:text-yellow-400 transition">Shop Products</a>
+                <a href="#" onclick="navigateTo('help')" class="hover:text-yellow-400 transition">Help & FAQ</a>
+                <a href="#" onclick="navigateTo('contact')" class="hover:text-yellow-400 transition">Contact</a>
+            </div>
+
+            <!-- Icons -->
+            <div class="flex items-center space-x-6">
+                <div class="relative cursor-pointer" onclick="navigateTo('cart')">
+                    <i class="fa-solid fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-xl" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-royal-green-light px-6 py-4 space-y-4">
+            <a href="#" onclick="navigateTo('home')" class="block hover:text-yellow-400">Home</a>
+            <a href="#" onclick="navigateTo('shop')" class="block hover:text-yellow-400">Shop Products</a>
+            <a href="#" onclick="navigateTo('cart')" class="block hover:text-yellow-400">Cart</a>
+            <a href="#" onclick="navigateTo('orders')" class="block hover:text-yellow-400">My Orders</a>
+            <a href="#" onclick="navigateTo('contact')" class="block hover:text-yellow-400">Contact</a>
+        </div>
     </nav>
-</header>
 
-<div class="cart">
-    🛒 Cart: <span id="cart-count">0</span>
-</div>
+    <!-- MAIN CONTENT AREA -->
+    <main class="min-h-screen container mx-auto px-4 py-8">
 
-<section class="hero">
-    <h2>Pure by Nature, Royal by Choice.</h2>
-</section>
+        <!-- 1. HOME PAGE -->
+        <section id="home" class="page-section active-section">
+            <!-- Hero -->
+            <div class="relative rounded-2xl overflow-hidden bg-gray-900 text-white h-96 flex items-center justify-center mb-12">
+                <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" class="absolute w-full h-full object-cover opacity-50">
+                <div class="relative z-10 text-center p-4">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-4 text-yellow-50">Pure by Nature, <br> <span class="royal-gold">Royal by Choice.</span></h2>
+                    <p class="text-lg mb-8 text-gray-200">Premium organic products delivered to your doorstep.</p>
+                    <button onclick="navigateTo('shop')" class="bg-royal-green hover:bg-green-800 text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-105 shadow-lg">
+                        Shop Now
+                    </button>
+                </div>
+            </div>
 
-<section class="products" id="products">
-    <h2>Our Premium Products</h2>
+            <!-- Features -->
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fa-solid fa-seedling text-4xl text-green-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">100% Organic</h3>
+                    <p class="text-gray-600">Sourced directly from certified organic farms.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fa-solid fa-truck-fast text-4xl text-green-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Fast Delivery</h3>
+                    <p class="text-gray-600">Royal treatment for your delivery, on time, every time.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fa-solid fa-heart text-4xl text-green-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Premium Quality</h3>
+                    <p class="text-gray-600">Handpicked selection for the royal family.</p>
+                </div>
+            </div>
+        </section>
 
-    <div class="product-grid">
+        <!-- 2. SHOP PAGE -->
+        <section id="shop" class="page-section">
+            <h2 class="text-3xl font-bold mb-8 text-royal-green">Our Products</h2>
+            <div id="product-grid" class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Products injected via JS -->
+            </div>
+        </section>
 
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1615486368053-2c8e0c1f2f93" alt="Almonds">
-            <h3>Premium Almonds</h3>
-            <p>High-quality organic almonds.</p>
-            <div class="price">₹799 / kg</div>
-            <button class="btn" onclick="addToCart()">Add to Cart</button>
-        </div>
+        <!-- 3. CART PAGE -->
+        <section id="cart" class="page-section">
+            <h2 class="text-3xl font-bold mb-8 text-royal-green">Your Cart</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Cart Items -->
+                <div class="md:w-2/3 bg-white p-6 rounded-lg shadow-md" id="cart-items-container">
+                    <p class="text-center text-gray-500">Your cart is empty.</p>
+                </div>
+                <!-- Summary -->
+                <div class="md:w-1/3">
+                    <div class="bg-white p-6 rounded-lg shadow-md sticky top-24">
+                        <h3 class="text-xl font-bold mb-4">Order Summary</h3>
+                        <div class="flex justify-between mb-2">
+                            <span>Subtotal</span>
+                            <span id="cart-subtotal">$0.00</span>
+                        </div>
+                        <div class="flex justify-between mb-2">
+                            <span>Tax (5%)</span>
+                            <span id="cart-tax">$0.00</span>
+                        </div>
+                        <div class="flex justify-between mb-4">
+                            <span>Shipping</span>
+                            <span class="text-green-600">Free</span>
+                        </div>
+                        <hr class="border-gray-200 my-4">
+                        <div class="flex justify-between text-xl font-bold mb-6">
+                            <span>Total</span>
+                            <span id="cart-total">$0.00</span>
+                        </div>
+                        <button onclick="checkout()" class="w-full bg-royal-green hover:bg-green-800 text-white font-bold py-3 rounded transition">
+                            Checkout Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1622480916113-16a491061b85" alt="Cashews">
-            <h3>Organic Cashews</h3>
-            <p>Fresh and crunchy premium cashews.</p>
-            <div class="price">₹899 / kg</div>
-            <button class="btn" onclick="addToCart()">Add to Cart</button>
-        </div>
+        <!-- 4. ORDERS PAGE -->
+        <section id="orders" class="page-section">
+            <h2 class="text-3xl font-bold mb-8 text-royal-green">Order History</h2>
+            <div id="orders-container" class="space-y-4">
+                <!-- Orders injected via JS -->
+                <p class="text-gray-500">No past orders found.</p>
+            </div>
+        </section>
 
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1604908177522-040fcb6f4a93" alt="Ghee">
-            <h3>Desi Cow Ghee</h3>
-            <p>100% pure organic A2 ghee.</p>
-            <div class="price">₹1299 / litre</div>
-            <button class="btn" onclick="addToCart()">Add to Cart</button>
-        </div>
+        <!-- 5. HELP PAGE -->
+        <section id="help" class="page-section">
+            <h2 class="text-3xl font-bold mb-8 text-royal-green">Help & FAQ</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-4">Frequently Asked Questions</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-semibold">Q: Are your products truly organic?</p>
+                            <p class="text-gray-600">A: Yes! We certify that all our products are 100% USDA organic.</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Q: What is your return policy?</p>
+                            <p class="text-gray-600">A: If you are not satisfied with the quality, we offer a 30-day money-back guarantee.</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Q: How do I store my organic roots?</p>
+                            <p class="text-gray-600">A: Store in a cool, dry place or refrigerator for maximum freshness.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    </div>
-</section>
-
-<footer>
-    © 2026 Royal Root Organics | All Rights Reserved
-</footer>
-
-<script>
-    let count = 0;
-
-    function addToCart(){
-        count++;
-        document.getElementById("cart-count").innerText = count;
-    }
-</script>
-
-</body>
-</html>
+        <!-- 6. CONTACT PAGE -->
+        <section id="contact" class="page-section">
+            <h2 class="text-3xl font-bold mb-8 text-royal-green">Contact Us</h2>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                <form onsubmit="submitContact(event)">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                        <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <input type="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                        <textarea class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" rows="
