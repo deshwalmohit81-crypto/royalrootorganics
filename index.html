@@ -1,57 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Root Organics | Pure by Nature, Royal by Choice</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>PureHarvest | Premium Dry Fruits & Ghee</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        /* --- CSS VARIABLES & RESET --- */
         :root {
-            --primary-green: #2E5D38; /* Deep Organic Green */
-            --secondary-green: #1B3A24;
-            --royal-gold: #D4AF37; /* Premium Gold */
-            --royal-gold-hover: #B5952F;
-            --cream: #F9F7F2; /* Off-white background */
-            --text-dark: #333333;
-            --text-light: #ffffff;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Poppins', sans-serif;
+            --primary: #d4a017; /* Rich Gold */
+            --secondary: #1a472a; /* Forest Green */
+            --accent: #e63946; /* Alert Red */
+            --bg-light: #fdfbf7; /* Creamy White */
+            --text-dark: #333;
+            --text-light: #fff;
+            --transition: all 0.3s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--cream);
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
             color: var(--text-dark);
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* --- TYPOGRAPHY --- */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
-
-        h1, h2, h3 {
-            font-family: var(--font-heading);
-            font-weight: 700;
+        /* --- Preloader --- */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-light);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #ddd;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* --- HEADER & NAV --- */
+        /* --- Header --- */
         header {
-            background-color: var(--primary-green);
-            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.95);
             padding: 1rem 5%;
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
             display: flex;
@@ -61,336 +78,337 @@
         }
 
         .logo {
+            font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
+            color: var(--secondary);
             font-weight: 700;
-            letter-spacing: 1px;
         }
-
-        .logo span {
-            color: var(--royal-gold);
-        }
+        .logo span { color: var(--primary); }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
         }
-
-        nav a {
+        nav ul li { margin: 0 15px; }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
             font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--royal-gold);
-        }
-
-        .cart-icon {
+            transition: var(--transition);
             position: relative;
-            cursor: pointer;
         }
-
-        .cart-count {
+        nav ul li a::after {
+            content: '';
             position: absolute;
-            top: -8px;
-            right: -10px;
-            background-color: var(--royal-gold);
-            color: var(--primary-green);
-            font-size: 0.8rem;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
         }
+        nav ul li a:hover::after { width: 100%; }
 
-        /* --- HERO SECTION --- */
+        .icons { font-size: 1.2rem; cursor: pointer; }
+        .icons i { margin-left: 15px; color: var(--secondary); transition: var(--transition); }
+        .icons i:hover { color: var(--primary); transform: scale(1.1); }
+
+        /* --- Hero Section --- */
         .hero {
-            height: 90vh;
-            background: linear-gradient(rgba(27, 58, 36, 0.7), rgba(27, 58, 36, 0.5)), url('https://images.unsplash.com/photo-1595855799984-7a9ae2809d43?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1596910547037-846b7dd4c27b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
             color: var(--text-light);
-            padding: 0 20px;
+            margin-top: 60px;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
             margin-bottom: 1rem;
-            text-transform: uppercase;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            font-style: italic;
-            color: var(--royal-gold);
+        .hero-content p {
+            font-size: 1.2rem;
             margin-bottom: 2rem;
         }
 
         .btn {
-            padding: 15px 35px;
-            background-color: var(--royal-gold);
-            color: var(--secondary-green);
-            font-weight: 700;
-            text-transform: uppercase;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
             border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 2px;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn:hover {
-            background-color: var(--royal-gold-hover);
-            transform: translateY(-2px);
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        /* --- FEATURES --- */
-        .features {
-            display: flex;
-            justify-content: space-around;
-            padding: 4rem 10%;
-            background-color: white;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .feature-item {
-            text-align: center;
-            max-width: 300px;
-        }
-
-        .feature-item i {
-            font-size: 2.5rem;
-            color: var(--primary-green);
-            margin-bottom: 1rem;
-        }
-
-        /* --- PRODUCTS SECTION --- */
-        .products {
-            padding: 5rem 10%;
+        /* --- Categories --- */
+        .categories {
+            padding: 5rem 5%;
             text-align: center;
         }
 
         .section-title {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: var(--primary-green);
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            color: #666;
+            color: var(--secondary);
             margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 25%;
         }
 
-        .product-grid {
+        .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .product-card {
+        .category-card {
             background: white;
-            border: 1px solid #eee;
-            padding: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            cursor: pointer;
+            overflow: hidden;
             position: relative;
         }
 
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .category-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* --- Product Section --- */
+        .products {
+            background: #f4f4f4;
+            padding: 5rem 5%;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-color: var(--royal-gold);
+            transform: scale(1.02);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
         }
 
         .product-img {
-            width: 100%;
             height: 250px;
+            width: 100%;
             object-fit: cover;
-            background-color: #f0f0f0;
-            margin-bottom: 1rem;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.1);
+        }
+
+        .img-overlay {
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+        }
+
+        .overlay-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 2;
+            border: none;
+            font-weight: bold;
+        }
+
+        .product-card:hover .overlay-btn {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
         }
 
         .product-title {
-            font-family: var(--font-heading);
             font-size: 1.2rem;
+            font-weight: 600;
             margin-bottom: 0.5rem;
+            color: var(--secondary);
         }
 
-        .product-price {
-            color: var(--royal-gold);
+        .price {
+            color: var(--primary);
             font-weight: 700;
             font-size: 1.1rem;
-            margin-bottom: 1rem;
-            display: block;
         }
 
-        /* --- ABOUT SECTION --- */
-        .about {
-            background-color: var(--primary-green);
-            color: white;
-            padding: 5rem 10%;
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            flex-wrap: wrap;
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+            margin-right: 5px;
         }
 
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: var(--royal-gold);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-image img {
+        .add-cart {
             width: 100%;
-            border-radius: 5px;
-            border: 5px solid var(--royal-gold);
-        }
-
-        /* --- CONTACT --- */
-        .contact {
-            padding: 5rem 10%;
-            text-align: center;
-        }
-
-        .contact form {
-            max-width: 600px;
-            margin: 2rem auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact input, .contact textarea {
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: var(--font-body);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--secondary-green);
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--secondary);
             color: white;
-            padding: 3rem 10%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-cart:hover {
+            background: var(--primary);
+        }
+
+        /* --- Features --- */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 3rem 5%;
+            background: var(--secondary);
+            color: white;
+        }
+
+        .feature-box {
+            text-align: center;
+            margin: 1rem;
+            flex: 1 1 200px;
+        }
+        .feature-box i { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+
+        /* --- Footer --- */
+        footer {
+            background: #111;
+            color: white;
+            padding: 3rem 5%;
             text-align: center;
         }
-
-        .footer-logo {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            color: var(--royal-gold);
-            margin-bottom: 1rem;
-        }
-
-        .social-icons {
-            margin-bottom: 1rem;
-        }
-
-        .social-icons i {
+        
+        .social-links { margin-top: 1rem; }
+        .social-links i {
             font-size: 1.5rem;
             margin: 0 10px;
             color: white;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
+        .social-links i:hover { color: var(--primary); }
 
-        .social-icons i:hover {
-            color: var(--royal-gold);
-        }
+        /* Mobile Menu Toggle */
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav ul { display: none; } /* Simplified for mobile view */
-            .about { flex-direction: column; }
+            .menu-toggle { display: block; }
+            nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+                display: none;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            nav ul.active { display: flex; }
+            .hero-content h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
     <header>
-        <div class="logo">Royal Root <span>Organics</span></div>
+        <div class="logo">Pure<span>Harvest</span></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
         <nav>
-            <ul>
+            <ul id="nav-list">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">Our Story</a></li>
+                <li><a href="#categories">Categories</a></li>
                 <li><a href="#products">Shop</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
         </nav>
-        <div class="cart-icon" onclick="alert('Cart feature coming soon!')">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-count">0</span>
+        <div class="icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-shopping-cart" onclick="toggleCart()"></i>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1>Pure by Nature, Royal by Choice</h1>
-        <p>Premium Organic Roots, Herbs & Teas</p>
-        <a href="#products" class="btn">Shop Collection</a>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1>Nature's Finest Delights</h1>
+            <p>Premium Dry Fruits, Organic Ghee & Spices straight from the farm to your home.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
     </section>
 
-    <!-- FEATURES -->
+    <!-- Features -->
     <section class="features">
-        <div class="feature-item">
-            <i class="fas fa-leaf"></i>
-            <h3>100% Organic</h3>
-            <p>Certified organic sources ensuring pure nutrition.</p>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-crown"></i>
-            <h3>Premium Quality</h3>
-            <p>Hand-selected for the highest potency and flavor.</p>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-shipping-fast"></i>
-            <h3>Fast Delivery</h3>
-            <p>Freshly packed and shipped within 24 hours.</p>
-        </div>
-    </section>
-
-    <!-- PRODUCTS SECTION -->
-    <section class="products" id="products">
-        <h2 class="section-title">Our Royal Selection</h2>
-        <p class="section-subtitle">Discover nature's finest treasures.</p>
-        
-        <div class="product-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Turmeric Powder" class="product-img">
-                <h3 class="product-title">Royal Turmeric Powder</h3>
-                <span class="product-price">$24.99</span>
-                <button class="btn" onclick="addToCart()">Add to Cart</button>
-            </div>
-            <!-- Product 2 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1597326556226-5c0481796e1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ginger Root" class="product-img">
-                <h3 class="product-title">Golden Ginger Roots</h3>
-                <span class="product-price">$18.50</span>
-                <button class="btn" onclick="addToCart()">Add to Cart</button>
-            </div>
-            <!-- Product 3 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Matcha Tea" class="product-img">
-                <h3 class="product-title">Imperial Matcha</h3>
-                <span class="product-price">$32.00</span>
-                <button class="btn" onclick="addToCart()">Add to Cart</button>
-            </div>
-            <!-- Product 4 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?ixlib=
+        <div class="feature-box" data-aos="fade-right">
+            <i class="fas fa-leaf">
