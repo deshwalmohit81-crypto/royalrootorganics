@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Royal Root Organics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#f9f9f9;
+        }
+
+        header{
+            background:#0d3b2e;
+            color:white;
+            padding:20px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        header h1{
+            font-size:24px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+            font-weight:500;
+        }
+
+        .hero{
+            background:url('https://images.unsplash.com/photo-1600891963935-c09c0c6b9e38') no-repeat center center/cover;
+            height:90vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            text-align:center;
+        }
+
+        .hero h2{
+            font-size:45px;
+            background:rgba(0,0,0,0.6);
+            padding:20px;
+            border-radius:10px;
+        }
+
+        .products{
+            padding:60px 8%;
+        }
+
+        .products h2{
+            text-align:center;
+            margin-bottom:40px;
+            color:#0d3b2e;
+        }
+
+        .product-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .product-card{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            text-align:center;
+            transition:0.3s;
+        }
+
+        .product-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .product-card img{
+            width:100%;
+            height:200px;
+            object-fit:cover;
+            border-radius:10px;
+        }
+
+        .product-card h3{
+            margin:15px 0 10px;
+        }
+
+        .product-card p{
+            color:#777;
+            font-size:14px;
+        }
+
+        .price{
+            font-weight:bold;
+            margin:10px 0;
+            color:#0d3b2e;
+        }
+
+        .btn{
+            background:#0d3b2e;
+            color:white;
+            padding:10px 20px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#145c45;
+        }
+
+        footer{
+            background:#0d3b2e;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:40px;
+        }
+
+        .cart{
+            position:fixed;
+            top:20px;
+            right:20px;
+            background:#ffcc00;
+            padding:10px 15px;
+            border-radius:50px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌿 Royal Root Organics</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="cart">
+    🛒 Cart: <span id="cart-count">0</span>
+</div>
+
+<section class="hero">
+    <h2>Pure by Nature, Royal by Choice.</h2>
+</section>
+
+<section class="products" id="products">
+    <h2>Our Premium Products</h2>
+
+    <div class="product-grid">
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1615486368053-2c8e0c1f2f93" alt="Almonds">
+            <h3>Premium Almonds</h3>
+            <p>High-quality organic almonds.</p>
+            <div class="price">₹799 / kg</div>
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1622480916113-16a491061b85" alt="Cashews">
+            <h3>Organic Cashews</h3>
+            <p>Fresh and crunchy premium cashews.</p>
+            <div class="price">₹899 / kg</div>
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1604908177522-040fcb6f4a93" alt="Ghee">
+            <h3>Desi Cow Ghee</h3>
+            <p>100% pure organic A2 ghee.</p>
+            <div class="price">₹1299 / litre</div>
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Royal Root Organics | All Rights Reserved
+</footer>
+
+<script>
+    let count = 0;
+
+    function addToCart(){
+        count++;
+        document.getElementById("cart-count").innerText = count;
+    }
+</script>
+
+</body>
+</html>
