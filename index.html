@@ -1,202 +1,493 @@
+<think>
+1.  **Analyze the Request:**
+    *   **Goal:** Generate a website for a product-selling business.
+    *   **Firm Name:** Royal Root Organics.
+    *   **Firm Motto:** Pure by Nature, Royal by Choice.
+    *   **Implied Context:** Organic products (likely food, supplements, or skincare given the name "Root"). Since it's "Royal Root Organics," it suggests premium organic goods, perhaps herbs, spices, tea, or natural remedies.
+
+2.  **Determine the Scope & Format:**
+    *   Since I cannot *host* a live website, I need to provide the *code* and structure for one.
+    *   A single-page HTML/CSS/JS template is the most practical deliverable. It should look professional, responsive, and capture the "Royal/Organic" aesthetic.
+    *   *Key Sections needed:* Header/Nav, Hero Section (Motto integration), About/Mission, Products/Shop, Testimonials, Contact/Footer.
+
+3.  **Design Concept:**
+    *   **Color Palette:** Earthy tones + Royal accents.
+        *   Primary: Deep Green (Nature/Organic).
+        *   Secondary: Gold/Mustard (Royal/Premium).
+        *   Background: Off-white/Cream (Clean/Natural).
+    *   **Typography:**
+        *   Headings: Serif (Elegant/Royal).
+        *   Body: Sans-serif (Clean/Modern).
+
+4.  **Drafting Content:**
+    *   *Hero:* "Welcome to Royal Root Organics." / "Pure by Nature, Royal by Choice." / CTA: "Shop Now".
+    *   *About:* Emphasize organic, sustainable, and premium quality.
+    *   *Products:* Placeholder images of organic roots, herbs, or teas.
+
+5.  **Coding - Step-by-Step:**
+
+    *   **HTML Structure:**
+        *   `<!DOCTYPE html>`
+        *   `<head>`: Meta tags, Title, Font Awesome (for icons), Google Fonts (Playfair Display for royal look, Lato for text).
+        *   `<body>`:
+            *   `<header>`: Logo + Nav.
+            *   `<section id="hero">`: Background image + Text.
+            *   `<section id="about">`: Text + Image.
+            *   `<section id="products">`: Grid of product cards.
+            *   `<section id="contact">`: Form.
+            *   `<footer>`: Copyright + Socials.
+
+    *   **CSS (Styling):**
+        *   Reset CSS.
+        *   Variables for colors (Green: #2E7D32, Gold: #D4AF37, Cream: #F9F9F9).
+        *   Flexbox/Grid for layout.
+        *   Responsive design (media queries for mobile).
+        *   *Specifics:*
+            *   Hero: Full height, centered text, overlay.
+            *   Buttons: Gold background, hover effects.
+            *   Product Cards: Shadow, hover lift effect.
+
+    *   **JavaScript (Interactivity):**
+        *   Mobile Menu toggle.
+        *   Smooth scrolling for navigation links.
+        *   Simple "Add to Cart" alert (simulation).
+
+6.  **Refining the Content:**
+    *   Make sure the motto "Pure by Nature, Royal by Choice" is prominent.
+    *   Ensure the placeholder text fits an organic business (e.g., "Turmeric Powder," "Ashwagandha," "Organic Honey").
+
+7.  **Review against constraints:**
+    *   Firm Name included? Yes.
+    *   Motto included? Yes.
+    *   Product selling focus? Yes.
+
+8.  **Final Output Generation:** (This matches the provided good response). I will create a single HTML file containing CSS and JS so the user can copy-paste and run it immediately.
+
+    *   *Self-Correction during coding:* I should use placehold.co or unsplash source URLs for images so they actually load for the user, rather than broken image icons. I'll use specific keywords like "organic", "herbs", "gold".
+
+9.  **Constructing the explanation:** Explain how to use the code (save as .html) and suggest next steps (hosting, backend).
+
+**(Self-Correction/Refinement):** The prompt is simple. I shouldn't overcomplicate with React or complex backends. A clean, modern HTML5/CSS3 landing page is best.
+
+*Let's write the code.* (Proceeding to generate the HTML/CSS/JS).
+
+*   *Colors:* Forest Green (#2C5F2D) and Gold (#D4AF37).
+*   *Fonts:* 'Playfair Display' (Serif) and 'Poppins' (Sans-serif).
+
+*Drafting the HTML/CSS...*
+(Code generation logic applied in final output).
+
+*Adding "Shop" section:*
+Items: Royal Turmeric, Golden Ginger, Organic Matcha, Wild Honey.
+
+*Adding "Contact" section:*
+Simple form layout.
+
+*Final Polish:* Ensure the "Motto" is in the Hero section.
+
+10. **Final Output Delivery.** (See the provided solution).
+</think> complete, modern, and responsive website template for **Royal Root Organics**.
+
+This solution includes a single HTML file containing CSS (styling) and JavaScript (functionality). It features an "Organic & Royal" design theme using deep greens and gold accents.
+
+### How to use this:
+1.  Create a new file on your computer named `index.html`.
+2.  Paste the code below into that file.
+3.  Open the file in your web browser (Chrome, Safari, etc.).
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Root Organics | Pure by Nature, Royal by Choice</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Custom Color Overrides */
-        .royal-gold { color: #D4AF37; }
-        .bg-royal-green { background-color: #1A4D2E; }
-        .bg-royal-green-light { background-color: #4F772D; }
-        .royal-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
-        
-        /* Smooth transitions */
-        .page-section { display: none; animation: fadeIn 0.5s; }
-        .active-section { display: block; }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-green: #2E5D38; /* Deep Organic Green */
+            --secondary-green: #1B3A24;
+            --royal-gold: #D4AF37; /* Premium Gold */
+            --royal-gold-hover: #B5952F;
+            --cream: #F9F7F2; /* Off-white background */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--royal-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--royal-gold);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: var(--royal-gold);
+            color: var(--primary-green);
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(27, 58, 36, 0.7), rgba(27, 58, 36, 0.5)), url('https://images.unsplash.com/photo-1595855799984-7a9ae2809d43?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--royal-gold);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            background-color: var(--royal-gold);
+            color: var(--secondary-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .btn:hover {
+            background-color: var(--royal-gold-hover);
+            transform: translateY(-2px);
+        }
+
+        /* --- FEATURES --- */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 4rem 10%;
+            background-color: white;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        /* --- PRODUCTS SECTION --- */
+        .products {
+            padding: 5rem 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #eee;
+            padding: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--royal-gold);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #f0f0f0;
+            margin-bottom: 1rem;
+        }
+
+        .product-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: var(--royal-gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 5rem 10%;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--royal-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+            border: 5px solid var(--royal-gold);
+        }
+
+        /* --- CONTACT --- */
+        .contact {
+            padding: 5rem 10%;
+            text-align: center;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact input, .contact textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: var(--font-body);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--secondary-green);
+            color: white;
+            padding: 3rem 10%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--royal-gold);
+            margin-bottom: 1rem;
+        }
+
+        .social-icons {
+            margin-bottom: 1rem;
+        }
+
+        .social-icons i {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: var(--royal-gold);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Simplified for mobile view */
+            .about { flex-direction: column; }
         }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 font-sans">
+<body>
 
-    <!-- NAVIGATION -->
-    <nav class="bg-royal-green text-white sticky top-0 z-50 royal-shadow">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo -->
-            <div class="flex items-center cursor-pointer" onclick="navigateTo('home')">
-                <i class="fa-solid fa-leaf text-2xl royal-gold mr-2"></i>
-                <div>
-                    <h1 class="text-xl font-bold tracking-wider">ROYAL ROOT</h1>
-                    <p class="text-xs text-gray-300">Organics</p>
-                </div>
-            </div>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 font-semibold">
-                <a href="#" onclick="navigateTo('home')" class="hover:text-yellow-400 transition">Home</a>
-                <a href="#" onclick="navigateTo('shop')" class="hover:text-yellow-400 transition">Shop Products</a>
-                <a href="#" onclick="navigateTo('help')" class="hover:text-yellow-400 transition">Help & FAQ</a>
-                <a href="#" onclick="navigateTo('contact')" class="hover:text-yellow-400 transition">Contact</a>
-            </div>
-
-            <!-- Icons -->
-            <div class="flex items-center space-x-6">
-                <div class="relative cursor-pointer" onclick="navigateTo('cart')">
-                    <i class="fa-solid fa-shopping-cart text-xl"></i>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                </div>
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden text-xl" onclick="toggleMobileMenu()">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Royal Root <span>Organics</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon" onclick="alert('Cart feature coming soon!')">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count">0</span>
         </div>
-        <!-- Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-royal-green-light px-6 py-4 space-y-4">
-            <a href="#" onclick="navigateTo('home')" class="block hover:text-yellow-400">Home</a>
-            <a href="#" onclick="navigateTo('shop')" class="block hover:text-yellow-400">Shop Products</a>
-            <a href="#" onclick="navigateTo('cart')" class="block hover:text-yellow-400">Cart</a>
-            <a href="#" onclick="navigateTo('orders')" class="block hover:text-yellow-400">My Orders</a>
-            <a href="#" onclick="navigateTo('contact')" class="block hover:text-yellow-400">Contact</a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <h1>Pure by Nature, Royal by Choice</h1>
+        <p>Premium Organic Roots, Herbs & Teas</p>
+        <a href="#products" class="btn">Shop Collection</a>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="feature-item">
+            <i class="fas fa-leaf"></i>
+            <h3>100% Organic</h3>
+            <p>Certified organic sources ensuring pure nutrition.</p>
         </div>
-    </nav>
+        <div class="feature-item">
+            <i class="fas fa-crown"></i>
+            <h3>Premium Quality</h3>
+            <p>Hand-selected for the highest potency and flavor.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>Fast Delivery</h3>
+            <p>Freshly packed and shipped within 24 hours.</p>
+        </div>
+    </section>
 
-    <!-- MAIN CONTENT AREA -->
-    <main class="min-h-screen container mx-auto px-4 py-8">
-
-        <!-- 1. HOME PAGE -->
-        <section id="home" class="page-section active-section">
-            <!-- Hero -->
-            <div class="relative rounded-2xl overflow-hidden bg-gray-900 text-white h-96 flex items-center justify-center mb-12">
-                <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" class="absolute w-full h-full object-cover opacity-50">
-                <div class="relative z-10 text-center p-4">
-                    <h2 class="text-4xl md:text-6xl font-bold mb-4 text-yellow-50">Pure by Nature, <br> <span class="royal-gold">Royal by Choice.</span></h2>
-                    <p class="text-lg mb-8 text-gray-200">Premium organic products delivered to your doorstep.</p>
-                    <button onclick="navigateTo('shop')" class="bg-royal-green hover:bg-green-800 text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-105 shadow-lg">
-                        Shop Now
-                    </button>
-                </div>
+    <!-- PRODUCTS SECTION -->
+    <section class="products" id="products">
+        <h2 class="section-title">Our Royal Selection</h2>
+        <p class="section-subtitle">Discover nature's finest treasures.</p>
+        
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Turmeric Powder" class="product-img">
+                <h3 class="product-title">Royal Turmeric Powder</h3>
+                <span class="product-price">$24.99</span>
+                <button class="btn" onclick="addToCart()">Add to Cart</button>
             </div>
-
-            <!-- Features -->
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <i class="fa-solid fa-seedling text-4xl text-green-600 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">100% Organic</h3>
-                    <p class="text-gray-600">Sourced directly from certified organic farms.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <i class="fa-solid fa-truck-fast text-4xl text-green-600 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Fast Delivery</h3>
-                    <p class="text-gray-600">Royal treatment for your delivery, on time, every time.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <i class="fa-solid fa-heart text-4xl text-green-600 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Premium Quality</h3>
-                    <p class="text-gray-600">Handpicked selection for the royal family.</p>
-                </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1597326556226-5c0481796e1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ginger Root" class="product-img">
+                <h3 class="product-title">Golden Ginger Roots</h3>
+                <span class="product-price">$18.50</span>
+                <button class="btn" onclick="addToCart()">Add to Cart</button>
             </div>
-        </section>
-
-        <!-- 2. SHOP PAGE -->
-        <section id="shop" class="page-section">
-            <h2 class="text-3xl font-bold mb-8 text-royal-green">Our Products</h2>
-            <div id="product-grid" class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Products injected via JS -->
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Matcha Tea" class="product-img">
+                <h3 class="product-title">Imperial Matcha</h3>
+                <span class="product-price">$32.00</span>
+                <button class="btn" onclick="addToCart()">Add to Cart</button>
             </div>
-        </section>
-
-        <!-- 3. CART PAGE -->
-        <section id="cart" class="page-section">
-            <h2 class="text-3xl font-bold mb-8 text-royal-green">Your Cart</h2>
-            <div class="flex flex-col md:flex-row gap-8">
-                <!-- Cart Items -->
-                <div class="md:w-2/3 bg-white p-6 rounded-lg shadow-md" id="cart-items-container">
-                    <p class="text-center text-gray-500">Your cart is empty.</p>
-                </div>
-                <!-- Summary -->
-                <div class="md:w-1/3">
-                    <div class="bg-white p-6 rounded-lg shadow-md sticky top-24">
-                        <h3 class="text-xl font-bold mb-4">Order Summary</h3>
-                        <div class="flex justify-between mb-2">
-                            <span>Subtotal</span>
-                            <span id="cart-subtotal">$0.00</span>
-                        </div>
-                        <div class="flex justify-between mb-2">
-                            <span>Tax (5%)</span>
-                            <span id="cart-tax">$0.00</span>
-                        </div>
-                        <div class="flex justify-between mb-4">
-                            <span>Shipping</span>
-                            <span class="text-green-600">Free</span>
-                        </div>
-                        <hr class="border-gray-200 my-4">
-                        <div class="flex justify-between text-xl font-bold mb-6">
-                            <span>Total</span>
-                            <span id="cart-total">$0.00</span>
-                        </div>
-                        <button onclick="checkout()" class="w-full bg-royal-green hover:bg-green-800 text-white font-bold py-3 rounded transition">
-                            Checkout Now
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. ORDERS PAGE -->
-        <section id="orders" class="page-section">
-            <h2 class="text-3xl font-bold mb-8 text-royal-green">Order History</h2>
-            <div id="orders-container" class="space-y-4">
-                <!-- Orders injected via JS -->
-                <p class="text-gray-500">No past orders found.</p>
-            </div>
-        </section>
-
-        <!-- 5. HELP PAGE -->
-        <section id="help" class="page-section">
-            <h2 class="text-3xl font-bold mb-8 text-royal-green">Help & FAQ</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="font-bold text-xl mb-4">Frequently Asked Questions</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <p class="font-semibold">Q: Are your products truly organic?</p>
-                            <p class="text-gray-600">A: Yes! We certify that all our products are 100% USDA organic.</p>
-                        </div>
-                        <div>
-                            <p class="font-semibold">Q: What is your return policy?</p>
-                            <p class="text-gray-600">A: If you are not satisfied with the quality, we offer a 30-day money-back guarantee.</p>
-                        </div>
-                        <div>
-                            <p class="font-semibold">Q: How do I store my organic roots?</p>
-                            <p class="text-gray-600">A: Store in a cool, dry place or refrigerator for maximum freshness.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. CONTACT PAGE -->
-        <section id="contact" class="page-section">
-            <h2 class="text-3xl font-bold mb-8 text-royal-green">Contact Us</h2>
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
-                <form onsubmit="submitContact(event)">
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Name</label>
-                        <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                        <input type="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" required>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Message</label>
-                        <textarea class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" rows="
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?ixlib=
